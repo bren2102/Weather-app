@@ -1,0 +1,72 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(#ffbaa3, rgba(238, 204, 168, 0.93));
+  width: 100%;
+  height: 100vh;
+  padding: 50px;
+  justify-content: space-around;
+  color: white;
+
+  #data-show {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .left,
+    .city,
+    .temperature,
+    .right,
+    .wind,
+    .humidity {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: 80%;
+    }
+
+    .city-temp-text {
+      font-size: 90px;
+    }
+
+    .desc-text {
+      font-size: 20px;
+    }
+
+    .main-text {
+      font-size: 18px;
+    }
+
+    .city,
+    .temperature {
+      align-items: flex-end;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+    }
+
+    .temperature {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: lighter;
+      margin-top: 80px;
+    }
+
+    .wind,
+    .humidity {
+      align-items: center;
+      background-color: rgba(241, 156, 130, 0.32);
+      border-radius: 20px;
+      padding: 20px;
+      margin: 10px;
+      width: 200px;
+      height: 200px;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+  }
+}
