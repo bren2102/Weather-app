@@ -1,4 +1,5 @@
-import Weather from './model/weather' 
+import Weather from './model/weather'
+import Api from './api'
 
 const uiManager = (() => {
   const content = document.getElementById('content');
@@ -10,14 +11,16 @@ const uiManager = (() => {
   const humidityNumber = document.getElementById('humidity-number');
   const cityInput = document.getElementById('city-input');
 
-  dataInput.addEventListener('keypress', (e) => {
+  cityInput.addEventListener('keypress', (e) => {
     if (e.code === 'Enter'){
-      const newWeather = new Weather(cityInput.value);
+      Api.weatherResult(cityInput.value).then((weather) => {
+        renderWeather(weather);
+      });
     };
   })
 
   const renderWeather = (weather) => {
-    cityName.textContent = weather.city;
+    cityName.textContent = (weather.city).toUpperCase;
     countryName.textContent = weather.country;
     temperatureNumber.textContent = weather.temperature;
     expectedDate.textContent = weather.expectedDate;
