@@ -13,29 +13,29 @@
     <div id="data-show">
       <div class="left">
         <div class="city">
-          <span class="city-temp-text">LIMA</span>
-          <span class="desc-text">PERU</span>
+          <span class="city-temp-text" id="city-name"></span>
+          <span class="desc-text" id="country-name"></span>
         </div>
         <div class="temperature">
-          <span class="city-temp-text">19 °C</span>
-          <span>SUNNY</span>
+          <span class="city-temp-text" id="temperature-number"></span>
+          <span id="expected-day"></span>
         </div>
       </div>
       <div class="right">
         <div class="wind">
           <span class="iconify" data-inline="false" data-icon="bx:bx-wind" style="color: #fff; font-size: 35px;"></span>
           <span class="main-text">Wind Speed</span>
-          <span class="desc-text">3.6 m/s</span>
+          <span class="desc-text" id="wind-number"></span>
         </div>
         <div class="humidity">
           <span class="iconify" data-inline="false" data-icon="iwwa:humidity" style="color: #fff; font-size: 46px;"></span>
           <span class="main-text">Humidity</span>
-          <span class="desc-text">35 %</span>
+          <span class="desc-text" id="humidity-number"></span>
         </div>
       </div>
     </div>
     <div class="search">
-      <input type="text" name="data-input" id="data-input">
+      <input type="text" name="city-input" id="data-input">
     </div>
     
   </div>
