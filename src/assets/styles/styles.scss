@@ -2,17 +2,17 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: white;
 }
 
 #content {
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(#ffbaa3, rgba(238, 204, 168, 0.93));
+  background-color: black;
   width: 100%;
   height: 100vh;
   padding: 50px;
   justify-content: space-around;
-  color: white;
 
   #data-show {
     display: flex;
@@ -60,13 +60,26 @@
     .wind,
     .humidity {
       align-items: center;
-      background-color: rgba(241, 156, 130, 0.32);
+      background-color: rgba(112, 110, 109, 0.32);
       border-radius: 20px;
       padding: 20px;
       margin: 10px;
       width: 200px;
       height: 200px;
       font-family: 'Roboto Condensed', sans-serif;
+    }
+  }
+
+  .search {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+
+    #city-input {
+      border-radius: 0;
+      background-color: transparent;
+      padding: 15px;
+      border: 1px solid white;
     }
   }
 }
