@@ -6,8 +6,12 @@ const apiWeather = (() => {
     const citySearch = apiRequest + '&q=' + city + '&units=' + unit;
     return new Promise((resolve, reject) => {
       fetch(citySearch).then(response => response.json().then((json) => {
-        const weather = new Weather(json.name, json.sys.country, json.weather[0].main, json.wind.speed, json.main.humidity, json.main.temp);
-        resolve(weather);
+        if (json.name) {
+          const weather = new Weather(json.name, json.sys.country, json.weather[0].main, json.wind.speed, json.main.humidity, json.main.temp);
+          resolve(weather);
+        } else {
+          reject();
+        }
       }));
     });
   };

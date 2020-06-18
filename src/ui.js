@@ -1,6 +1,7 @@
 import Weather from './model/weather'
 import Api from './api'
 import Country from './country'
+import apiWeather from './api';
 
 const uiManager = (() => {
   const dataShow = document.getElementById('data-show');
@@ -14,23 +15,40 @@ const uiManager = (() => {
   const temperatureSelector = document.getElementById('temperature-selector');
   const celsiusSelected = document.getElementById('celsius-selected');
   const farenheitSelected = document.getElementById('farenheit-selected');
+  const title = document.getElementById('title');
+  const farenheitUnit = false;
+  const celsiusUnit = false;
+  let unitSelected = 'metric';
 
+  // title.style.alignSelf = 'center';
+  // title.style.fontSize = '50px';
+  // title.style.fontFamily = "Sacramento', cursive";
   dataShow.style.display = 'none';
   cityInput.style.width = '50%';
   cityInput.style.margin = '0 auto';
   temperatureSelector.style.display = 'none';
-  
+
+  const celsiusSelect = () => {
+    farenheitSelected.addEventListener('mouseenter', (e) => {
+      farenheitSelected.style.cursor = 'pointer';
+    })
+    celsiusSelected.style.color = 'gray';
+    celsiusSelected.style.fontWeight = 'bold';
+    farenheitSelected.style.color = 'white';
+    farenheitSelected.style.fontWeight = 'normal';
+  }
+
   cityInput.addEventListener('keypress', (e) => {
-    if (e.code === 'Enter'){
+    if (e.code === 'Enter') {
       Api.weatherResult(cityInput.value, 'metric').then((weather) => {
         renderWeather(weather);
+        cityInput.placeholder = 'Search by city';
+      }).catch(() => {
+        cityInput.value = '';
+        cityInput.placeholder = 'City not found';
       });
-      celsiusSelected.style.color = 'gray';
-      celsiusSelected.style.fontWeight = 'bold';
-      farenheitSelected.addEventListener('mouseenter', (e) => {
-        farenheitSelected.style.cursor = 'pointer';
-      })
-    };
+      celsiusSelect();
+    }
   });
 
   farenheitSelected.addEventListener('click', () => {
@@ -39,24 +57,20 @@ const uiManager = (() => {
     });
     celsiusSelected.addEventListener('mouseenter', (e) => {
       celsiusSelected.style.cursor = 'pointer';
-    })
+    });
+    farenheitUnit = true;
     farenheitSelected.style.color = 'gray';
     farenheitSelected.style.fontWeight = 'bold';
     celsiusSelected.style.color = 'white';
     celsiusSelected.style.fontWeight = 'normal';
   });
-
+  
   celsiusSelected.addEventListener('click', () => {
     Api.weatherResult(cityName.textContent, 'metric').then((weather) => {
       renderWeather(weather);
     });
-    farenheitSelected.addEventListener('mouseenter', (e) => {
-      farenheitSelected.style.cursor = 'pointer';
-    })
-    celsiusSelected.style.color = 'gray';
-    celsiusSelected.style.fontWeight = 'bold';
-    farenheitSelected.style.color = 'white';
-    farenheitSelected.style.fontWeight = 'normal';
+    celsiusUnit = true;
+    celsiusSelect();
   });
 
   const renderWeather = (weather) => {
