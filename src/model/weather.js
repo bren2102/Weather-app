@@ -7,9 +7,6 @@ class Weather {
     this.humidity = humidity;
     this.temperature = temperature;
   }
-  convertTemperature(temperature) {
-    this.temperature;
-  };
 }
 
 export default Weather;
