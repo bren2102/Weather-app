@@ -76,7 +76,7 @@ const uiManager = (() => {
         });
         farenheitSelect();
       }
-    }
+    };
   });
 
   farenheitSelected.addEventListener('click', () => {
