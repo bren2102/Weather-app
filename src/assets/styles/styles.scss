@@ -74,7 +74,7 @@
     font-family: 'Roboto', sans-serif;
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: flex-end;
     margin: 0 100px;
 
     #temperature-selector {
@@ -95,6 +95,7 @@
       padding: 15px;
       border: 1px solid white;
       width: auto;
+      outline: none;
     }
   }
 }

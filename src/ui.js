@@ -13,6 +13,7 @@ const uiManager = (() => {
   const temperatureSelector = document.getElementById('temperature-selector');
   const celsiusSelected = document.getElementById('celsius-selected');
   const farenheitSelected = document.getElementById('farenheit-selected');
+  let unitCeliusSelected = true;
 
   dataShow.style.display = 'none';
   cityInput.style.width = '50%';
@@ -23,10 +24,21 @@ const uiManager = (() => {
     farenheitSelected.addEventListener('mouseenter', () => {
       farenheitSelected.style.cursor = 'pointer';
     });
+    unitCeliusSelected = true;
     celsiusSelected.style.color = 'gray';
     celsiusSelected.style.fontWeight = 'bold';
     farenheitSelected.style.color = 'white';
     farenheitSelected.style.fontWeight = 'normal';
+  };
+  const farenheitSelect = () => {
+    celsiusSelected.addEventListener('mouseenter', () => {
+      celsiusSelected.style.cursor = 'pointer';
+    });
+    unitCeliusSelected = false;
+    farenheitSelected.style.color = 'gray';
+    farenheitSelected.style.fontWeight = 'bold';
+    celsiusSelected.style.color = 'white';
+    celsiusSelected.style.fontWeight = 'normal';
   };
 
   const renderWeather = (weather) => {
@@ -45,14 +57,25 @@ const uiManager = (() => {
 
   cityInput.addEventListener('keypress', (e) => {
     if (e.code === 'Enter') {
-      Api.weatherResult(cityInput.value, 'metric').then((weather) => {
-        renderWeather(weather);
-        cityInput.placeholder = 'Search by city';
-      }).catch(() => {
-        cityInput.value = '';
-        cityInput.placeholder = 'City not found';
-      });
-      celsiusSelect();
+      if (unitCeliusSelected == true) {
+        Api.weatherResult(cityInput.value, 'metric').then((weather) => {
+          renderWeather(weather);
+          cityInput.placeholder = 'Search by city';
+        }).catch(() => {
+          cityInput.value = '';
+          cityInput.placeholder = 'City not found';
+        });
+        celsiusSelect();
+      } else {
+        Api.weatherResult(cityInput.value, 'imperial').then((weather) => {
+          renderWeather(weather);
+          cityInput.placeholder = 'Search by city';
+        }).catch(() => {
+          cityInput.value = '';
+          cityInput.placeholder = 'City not found';
+        });
+        farenheitSelect();
+      }
     }
   });
 
@@ -60,13 +83,7 @@ const uiManager = (() => {
     Api.weatherResult(cityName.textContent, 'imperial').then((weather) => {
       renderWeather(weather);
     });
-    celsiusSelected.addEventListener('mouseenter', () => {
-      celsiusSelected.style.cursor = 'pointer';
-    });
-    farenheitSelected.style.color = 'gray';
-    farenheitSelected.style.fontWeight = 'bold';
-    celsiusSelected.style.color = 'white';
-    celsiusSelected.style.fontWeight = 'normal';
+    farenheitSelect();
   });
 
   celsiusSelected.addEventListener('click', () => {
