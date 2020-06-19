@@ -15,14 +15,10 @@ const uiManager = (() => {
   const temperatureSelector = document.getElementById('temperature-selector');
   const celsiusSelected = document.getElementById('celsius-selected');
   const farenheitSelected = document.getElementById('farenheit-selected');
-  const title = document.getElementById('title');
   const farenheitUnit = false;
   const celsiusUnit = false;
   let unitSelected = 'metric';
 
-  // title.style.alignSelf = 'center';
-  // title.style.fontSize = '50px';
-  // title.style.fontFamily = "Sacramento', cursive";
   dataShow.style.display = 'none';
   cityInput.style.width = '50%';
   cityInput.style.margin = '0 auto';
