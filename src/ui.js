@@ -13,6 +13,7 @@ const uiManager = (() => {
   const temperatureSelector = document.getElementById('temperature-selector');
   const celsiusSelected = document.getElementById('celsius-selected');
   const farenheitSelected = document.getElementById('farenheit-selected');
+  const tempIcon = document.getElementById('temp-icon');
   let unitCeliusSelected = true;
 
   dataShow.style.display = 'none';
@@ -30,6 +31,7 @@ const uiManager = (() => {
     farenheitSelected.style.color = 'white';
     farenheitSelected.style.fontWeight = 'normal';
   };
+
   const farenheitSelect = () => {
     celsiusSelected.addEventListener('mouseenter', () => {
       celsiusSelected.style.cursor = 'pointer';
@@ -47,6 +49,7 @@ const uiManager = (() => {
     cityInput.style.width = 'auto';
     cityInput.style.margin = '0';
     cityInput.value = '';
+    tempIcon.src = `http://openweathermap.org/img/wn/${weather.icon}@2x.png`;
     cityName.textContent = (weather.city).toUpperCase();
     countryName.textContent = Country.getCountryName(weather.country);
     temperatureNumber.textContent = `${weather.temperature} º`;

@@ -8,7 +8,8 @@ const apiWeather = (() => {
       fetch(citySearch).then(response => response.json().then((json) => {
         if (json.name) {
           const weather = new Weather(json.name, json.sys.country,
-            json.weather[0].main, json.wind.speed, json.main.humidity, json.main.temp);
+            json.weather[0].description, json.wind.speed, json.main.humidity,
+            json.main.temp, json.weather[0].icon);
           resolve(weather);
         } else {
           reject();
