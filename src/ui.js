@@ -57,7 +57,7 @@ const uiManager = (() => {
 
   cityInput.addEventListener('keypress', (e) => {
     if (e.code === 'Enter') {
-      if (unitCeliusSelected == true) {
+      if (unitCeliusSelected === true) {
         Api.weatherResult(cityInput.value, 'metric').then((weather) => {
           renderWeather(weather);
           cityInput.placeholder = 'Search by city';

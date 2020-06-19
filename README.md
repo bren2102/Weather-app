@@ -14,19 +14,19 @@
 - npm
 
 ## NPM available scripts
-Use "npm run-script " followed by any of the following commands : 
+Use "npm run -script " followed by any of the following commands : 
 
 - "build": "webpack --mode production"
 - "watch": "webpack --mode development --watch"
 
 ## Live Demo
 
-[Live Demo Version](https://rawcdn.githack.com/bren2102/To-do-list/69460417a10f8b8390b213942a8b74115993204d/dist/index.html)
+[Live Demo Version](https://raw.githack.com/bren2102/Weather-app/feature/dist/index.html)
 
 ## Preview
 ![Preview](./src/assets/WeatherApp.png)
 
-## Authors
+## Author
 
 👤 **Brenda Yucra**
 
