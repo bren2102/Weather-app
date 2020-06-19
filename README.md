@@ -14,7 +14,7 @@
 - npm
 
 ## NPM available scripts
-Use "npm run -script " followed by any of the following commands : 
+Use "npm run-script " followed by any of the following commands : 
 
 - "build": "webpack --mode production"
 - "watch": "webpack --mode development --watch"
