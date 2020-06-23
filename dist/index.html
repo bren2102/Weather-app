@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>The weather App</title>
+</head>
+<body>
+  <div id="content">
+    <div id="data-show">
+      <div class="left">
+        <div class="city">
+          <span class="city-temp-text" id="city-name"></span>
+          <span class="desc-text" id="country-name"></span>
+        </div>
+        <div class="temperature">
+          <div>
+            <img id="temp-icon">
+            <span class="city-temp-text" id="temperature-number"></span>
+          </div>
+          <span id="expected-day"></span>
+        </div>
+      </div>
+      <div class="right">
+        <div class="wind">
+          <span class="iconify" data-inline="false" data-icon="bx:bx-wind" style="color: #fff; font-size: 35px;"></span>
+          <span class="main-text">Wind Speed</span>
+          <span class="desc-text" id="wind-number"></span>
+        </div>
+        <div class="humidity">
+          <span class="iconify" data-inline="false" data-icon="iwwa:humidity" style="color: #fff; font-size: 46px;"></span>
+          <span class="main-text">Humidity</span>
+          <span class="desc-text" id="humidity-number"></span>
+        </div>
+      </div>
+    </div>
+    <div class="search">
+      <input type="text" placeholder="Search by city" name="city-input" id="city-input">
+      <div id="temperature-selector">
+        <span id="celsius-selected">ºC</span>
+        <span id="farenheit-selected">ºF</span>
+      </div>
+    </div>
+    
+  </div>
+</body>
+<script src="main.js" type="text/javascript"></script>
+</html>
